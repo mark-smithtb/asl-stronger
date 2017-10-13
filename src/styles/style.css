@@ -260,12 +260,12 @@ html {
 }
 .name {
   grid-area: sort-name / video-nametags / name-tags / nametags-end;
-  background-color: darkblue;
+  background-color: lightblue;
 }
 .tags-list {
   display: flex;
   /*justify-self: center;*/
   overflow: scroll;
   grid-area: name-tags / video-nametags / tags-footer / nametags-extra;
-  background-color: gray;
+  background-color: orange;
 }

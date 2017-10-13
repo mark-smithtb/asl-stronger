@@ -1,10 +1,4 @@
-
-let url = "https://aslstrongapi.herokuapp.com/api/allwords"
-fetch(url)
-  .then(res => res.json())
-  .then(data => console.log())
-
-  // let url = "https://aslstrongapi.herokuapp.com/api/allwords"
+// let url = "https://aslstrongapi.herokuapp.com/api/allwords"
 
 {
   "words": [
@@ -70,6 +64,21 @@ fetch(url)
   "updatedAt": "2017-10-07T18:45:12.518Z"
     }
   ]
+}
+
+//https://aslstrongapi.herokuapp.com/api/video/:videoId
+
+{
+  "video": {
+    "id": 69,
+    "videoURL": "https://www.youtube.com/watch?v=iYHy_Mx1yoY",
+    "dominateHand": "",
+    "nonDominateHand": "",
+    "orientation": "",
+    "location": "",
+    "movement": "",
+    "expression": ""
+  }
 }
 
 //https://aslstrongapi.herokuapp.com/api/categories

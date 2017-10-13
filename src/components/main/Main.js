@@ -1,6 +1,6 @@
 import React from 'react'
-import SortList from './Sort-List'
-import ResultsList from './Results-List'
+import SortList from './sort/Sort-List'
+import ResultsList from './results/Results-List'
 
 let Main = () =>
 
