@@ -7,13 +7,13 @@ class ResultsItem extends Component {
   }
 
   componentDidMount() {
-    fetch('https://aslstrongapi.herokuapp.com/api/word/61')
-      .then(results => results.json())
-      .then(data => {
-        console.log(data)
-        // this.setState({ data: data })
-      })
-      // .then(console.log('state', this.state.data))
+
+    fetch('https://aslstrongapi.herokuapp.com/api/categories')
+      .then(console.log('hello'))
+      // .then(results => results.json())
+      // .then(data => {
+      //   console.log(data)
+    // })
   }
 
   render = () => {
@@ -21,7 +21,7 @@ class ResultsItem extends Component {
     let words = 'Cancel'
     return (
       <li className="results-item">
-        <iframe className="video" width="560" height="315" src={videoURL} frameBorder="0" title="video" allowFullScreen />
+        <iframe className="video" src={videoURL} frameBorder="0" title="video" allowFullScreen />
         <a className="name" href="#">
           <h2 className="sub-header">{words}</h2>
         </a>
@@ -32,3 +32,8 @@ class ResultsItem extends Component {
 }
 
 export default ResultsItem
+
+
+// https://tiny-lasagna-server.herokuapp.com/collections/playlisting
+
+// https://aslstrongapi.herokuapp.com/api/categories
