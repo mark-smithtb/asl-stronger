@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import SortList from './Sort-List'
 import ResultsList from './Results-List'
 
