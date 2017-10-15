@@ -1,13 +1,13 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 
 let Nav = () =>
 
     <nav id="nav-list">
-      <a id="home" className="nav-item" href="#"><li>Home</li></a>
-      <a id="letters" className="nav-item" href="#"><li>Letters</li></a>
-      <a id="handshapes" className="nav-item" href="#"><li>Handshapes</li></a>
-      <a id="categories" className="nav-item" href="#"><li>Categories</li></a>
-      <a id="about" className="nav-item" href="#"><li>About</li></a>
+      <NavLink to="/">Home</NavLink>
+      <NavLink className="nav-item"to="/Dictionary/English">English Dictionary</NavLink>
+      <NavLink className="nav-item" to="/categories">Categories</NavLink>
+      <NavLink className="nav-item" to="/about">About</NavLink>
     </nav>
 
 export default Nav

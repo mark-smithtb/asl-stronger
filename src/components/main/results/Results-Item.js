@@ -8,24 +8,23 @@ class ResultsItem extends Component {
   }
 
   componentDidMount() {
-    fetch(`https://aslstrongapi.herokuapp.com/api/video/${this.props.videoId}`)
-      .then(r => r.json())
-      .then(data => {
-        let currentState = this.state
-        this.setState({
-          ...currentState,
-          videoURL: data.video.videoURL.replace("watch?v=", "embed/")
-        })
-      })
+    // fetch(`https://aslstrongapi.herokuapp.com/api/video/${this.props.videoId}`)
+    //   .then(r => r.json())
+    //   .then(data => {
+    //     let currentState = this.state
+    //     this.setState({
+    //       ...currentState,
+    //       videoURL: data.video.videoURL.replace("watch?v=", "embed/")
+    //     })
+    //   })
   }
 
   render = () =>
-      <li className="results-item">
+      <li className="results-item" onClick={() => {this.getWord(this.props.object.id)}}>
         <iframe className="video" src={this.state.videoURL} frameBorder="0" title="video" allowFullScreen />
-        <a className="name" href="#"> <h2 className="sub-header">{this.props.object.words[0]}</h2> </a>
-        <TagsList categories={this.props.object.categories}/>
+        <div> <h2 className="sub-header">{this.props.object.words[0]}</h2> </div>
       </li>
-
+  getWord = (id) => this.props.handleStateChange('getWord', id)
 }
 
 export default ResultsItem

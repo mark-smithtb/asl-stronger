@@ -78,7 +78,7 @@ html {
 
   .results-item {
     max-height: calc(100vw - (100vw/12 * 3));
-    width: 100vw;
+    width: 50vw;
 
     grid-template-rows:
     [sort-name] calc(100vw/12)
@@ -163,21 +163,21 @@ html {
   #results-list {
     min-height: calc(100vh/12);
     max-height: calc(100vh/12*9);
-    width: calc(100vw - 100vh/12 * 3);
+    width: calc(50vw - 100vh/12 * 3);
 
     display: grid;
-
+    padding: 20px;
     grid-auto-flow: row;
-
+    grid-gap: 20px;
     grid-auto-rows:
     repeat(4, calc(100vh/12*2));
     grid-auto-columns:
-    repeat(3, calc(100vh/12*6));
+    repeat(2, calc(100vh/12*6));
 
     grid-template-rows:
     repeat(4, calc(100vh/12*2));
     grid-template-columns:
-    repeat(3, calc(100vh/12*6));
+    repeat(2, calc(100vh/12*6));
   }
 
   .results-item {
@@ -251,6 +251,7 @@ html {
 
 #results-list {
   overflow-y: scroll;
+
   grid-area: sort-results / nav-main / results-footer / main-end;
   background-color: purple;
 }
