@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import TagsList from './tags/Tags-List'
+var youtubeThumbnail = require('youtube-thumbnail');
 
 class ResultsItem extends Component {
 
@@ -7,23 +8,19 @@ class ResultsItem extends Component {
     videoURL : ''
   }
 
-  componentDidMount() {
-    // fetch(`https://aslstrongapi.herokuapp.com/api/video/${this.props.videoId}`)
-    //   .then(r => r.json())
-    //   .then(data => {
-    //     let currentState = this.state
-    //     this.setState({
-    //       ...currentState,
-    //       videoURL: data.video.videoURL.replace("watch?v=", "embed/")
-    //     })
-    //   })
+  componentWill() {
+
   }
 
-  render = () =>
+  render() {
+    console.log(youtubeThumbnail(this.props.object.videoURL).default);
+    return (
       <li className="results-item" onClick={() => {this.getWord(this.props.object.id)}}>
-        <iframe className="video" src={this.state.videoURL} frameBorder="0" title="video" allowFullScreen />
-        <div> <h2 className="sub-header">{this.props.object.words[0]}</h2> </div>
+        <img className="video" scr={youtubeThumbnail(this.props.object.videoURL).default.url}/>
+         <p className="sub-header">{this.props.object.words[0]}</p>
       </li>
+    )
+    }
   getWord = (id) => this.props.handleStateChange('getWord', id)
 }
 
