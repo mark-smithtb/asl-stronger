@@ -54,18 +54,23 @@ class Main extends Component {
       fetch(`https://aslstrongapi.herokuapp.com/api/categories/${payload}`)
       .then(r => r.json())
       .then(data => {
-        console.log('this is loading')
         let currentState = this.state
-        var objects = data.info.map((object) => {
-          return ({
-            id: [object.id],
-            words: [object.words[0]],
-            categories: [object.categories]
-          })
-        })
-        this.setState({
-          ...currentState,
-          objects: objects
+         data.info.forEach((object) => {
+          var newObject = fetch(`https://aslstrongapi.herokuapp.com/api/video/${object.videoId}`)
+            .then(r => r.json())
+            .then(data => {
+              object = {
+                id: [object.id],
+                words: [object.words[0]],
+                categories: [object.categories],
+                videoURL: data.video.videoURL
+              }
+              var objects = this.state.objects
+              this.setState({
+                ...currentState,
+                objects: [...this.state.objects, object]
+              })
+            })
         })
       })
       break;

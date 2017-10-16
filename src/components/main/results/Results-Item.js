@@ -13,12 +13,14 @@ class ResultsItem extends Component {
   }
 
   render() {
-    console.log(youtubeThumbnail(this.props.object.videoURL).default);
+    var thumbnail = youtubeThumbnail(this.props.object.videoURL).default
     return (
-      <li className="results-item" onClick={() => {this.getWord(this.props.object.id)}}>
-        <img className="video" scr={youtubeThumbnail(this.props.object.videoURL).default.url}/>
+      <div className="results-item" onClick={() => {this.getWord(this.props.object.id)}}>
+        <img className="video" width={thumbnail.width} height={thumbnail.height} src={thumbnail.url}/>
+        <div className='results-item-details'>
          <p className="sub-header">{this.props.object.words[0]}</p>
-      </li>
+        </div>
+      </div>
     )
     }
   getWord = (id) => this.props.handleStateChange('getWord', id)

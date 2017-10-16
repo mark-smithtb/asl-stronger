@@ -12,7 +12,7 @@ class DictionaryPage extends Component {
       )
     }
     return (
-      <div>
+      <div id='main-body'>
      <ResultsList  objects={this.props.objects} handleStateChange={this.props.handleStateChange} />
      {video}
      </div>

@@ -6,10 +6,16 @@ import Video from './results/Video'
 class CategoriesPage extends Component {
 
   render() {
+    var video;
+    if (this.props.word) {
+      video = (
+        <Video word={this.props.word} />
+      )
+    }
     return (
-    <div>
+    <div id='main-body'>
       <ResultsList  objects={this.props.objects} handleStateChange={this.props.handleStateChange} />
-      <Video word={this.props.word} />
+      {video}
     </div>
     )
 }

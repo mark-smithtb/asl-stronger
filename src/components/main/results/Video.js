@@ -5,7 +5,7 @@ import Youtube from 'react-youtube'
 class ResultsItem extends Component {
 
   render = () =>
-      <div >
+      <div className='videoDetail'>
         <Youtube videoId={this.props.word.url} />
       </div>
 }
