@@ -6,7 +6,13 @@ class ResultsItem extends Component {
 
   render = () =>
       <div className='videoDetail'>
-        <Youtube videoId={this.props.word.url} />
+        <Youtube
+          videoId={this.props.word.url}
+          opts={{
+            height: '390',
+            width: '500'
+          }}
+           />
       </div>
 }
 

@@ -4,6 +4,8 @@ import Video from './results/Video'
 
 
 class DictionaryPage extends Component {
+
+
   render() {
     var video;
     if (this.props.word) {
@@ -13,7 +15,7 @@ class DictionaryPage extends Component {
     }
     return (
       <div id='main-body'>
-     <ResultsList  objects={this.props.objects} handleStateChange={this.props.handleStateChange} />
+     <ResultsList  objects={this.props.objects} clearVideos={this.props.clearVideos} handleStateChange={this.props.handleStateChange} />
      {video}
      </div>
   )

@@ -3,7 +3,8 @@ import ResultsList from './results/Results-List'
 import Video from './results/Video'
 
 
-class CategoriesPage extends Component {
+  class CategoriesPage extends Component {
+
 
   render() {
     var video;
@@ -14,7 +15,7 @@ class CategoriesPage extends Component {
     }
     return (
     <div id='main-body'>
-      <ResultsList  objects={this.props.objects} handleStateChange={this.props.handleStateChange} />
+      <ResultsList  objects={this.props.objects} clearVideos={this.props.clearVideos} handleStateChange={this.props.handleStateChange} />
       {video}
     </div>
     )

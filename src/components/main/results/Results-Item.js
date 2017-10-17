@@ -8,10 +8,6 @@ class ResultsItem extends Component {
     videoURL : ''
   }
 
-  componentWill() {
-
-  }
-
   render() {
     var thumbnail = youtubeThumbnail(this.props.object.videoURL).default
     return (

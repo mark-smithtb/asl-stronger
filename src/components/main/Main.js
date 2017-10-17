@@ -18,25 +18,42 @@ class Main extends Component {
     }
     this._handleStateChange('getCategories', '')
   }
+  componentDidUpdate(prevProps) {
+      if (this.props.location !== prevProps.location) {
+        this.onRouteChanged();
+      }
+    }
 
-
+    onRouteChanged = () => {
+      this.setState({
+        objects: []
+      })
+    }
 
 
   render () {
+    console.log(this.state);
+
     return (
       <main id="main">
         <Route path='/' exact component={HomePage}/>
         <Route path='/about' exact component={AboutPage}/>
           <Route path='/categories' exact render={() => <CategoriesSortList handleStateChange={this._handleStateChange} categories={this.state.categories}/> } />
-        <Route path='/categories' exact render={() => <CategoriesPage objects={this.state.objects} handleStateChange={this._handleStateChange}/> } />
+        <Route path='/categories' exact render={() => <CategoriesPage clearVideos={this._clearVideos} word={this.state.selectedVideo} objects={this.state.objects} handleStateChange={this._handleStateChange}/> } />
         <Route path='/Dictionary/English' exact render={() => <AlphaSortList word={this.state.selectedVideo} handleStateChange={this._handleStateChange}/> } />
-        <Route path='/Dictionary/English' exact render={() => <DictionaryPage word={this.state.selectedVideo} objects={this.state.objects} handleStateChange={this._handleStateChange}/> } />
+        <Route path='/Dictionary/English' exact render={() => <DictionaryPage clearVideos={this._clearVideos} word={this.state.selectedVideo} objects={this.state.objects} handleStateChange={this._handleStateChange}/> } />
       </main>
     )
   }
 
+  _clearVideos = () => {
+    this.setState({
+      objects: []
+    })
+  }
 
   _handleStateChange = (type, payload) => {
+
     switch (type) {
       case 'getCategories':
       fetch(`https://aslstrongapi.herokuapp.com/api/categories`)
@@ -51,6 +68,9 @@ class Main extends Component {
       })
       break;
       case 'getWordsByCategory':
+      this.setState({
+        objects: []
+      })
       fetch(`https://aslstrongapi.herokuapp.com/api/categories/${payload}`)
       .then(r => r.json())
       .then(data => {
@@ -75,6 +95,9 @@ class Main extends Component {
       })
       break;
       case 'getWordsByLetter':
+      this.setState({
+        objects: []
+      })
       fetch(`https://aslstrongapi.herokuapp.com/api/letter/${payload}`)
       .then(r => r.json())
       .then(data => {
